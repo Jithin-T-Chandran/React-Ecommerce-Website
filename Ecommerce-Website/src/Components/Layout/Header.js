@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import HeaderCartButton from "./HeaderCartButton";
 
 function Header(props) {
   return (
@@ -14,6 +15,7 @@ function Header(props) {
           <li>
             <p>ABOUT</p>
           </li>
+          <HeaderCartButton/>
         </ul>
         <h1>The Generics</h1>
       </header>

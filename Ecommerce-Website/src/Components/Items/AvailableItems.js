@@ -9,6 +9,8 @@ const DUMMY_ITEMS = [
     price: 100,
 
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+
+    quantity: 2,
   },
 
   {
@@ -18,6 +20,8 @@ const DUMMY_ITEMS = [
     price: 50,
 
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+
+    quantity: 3,
   },
 
   {
@@ -27,15 +31,8 @@ const DUMMY_ITEMS = [
     price: 70,
 
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-  },
 
-  {
-    id: 4,
-    title: "Blue Color",
-
-    price: 100,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+    quantity: 1,
   },
 ];
 
@@ -51,9 +48,7 @@ function AvailableItems() {
   return (
     <section className="container">
       <h2>MUSIC</h2>
-      <div id="music-content">
-        {itemsList}
-        </div>
+      <div id="music-content">{itemsList}</div>
     </section>
   );
 }
