@@ -1,9 +1,14 @@
 import './App.css';
+import Header from './Components/Layout/Header';
+import Footer from './Components/Layout/Footer';
+import AvailableItems from './Components/Items/AvailableItems';
 
 function App() {
   return (
     <div>
-      <h1>Hai</h1>
+      <Header/>
+      <AvailableItems/>
+      <Footer/>
     </div>
   );
 }
