@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import Swal from "sweetalert2";
 import NavBar from "../Pages/NavBar";
+import "./SignUp.css";
 
 function SignUp() {
   const [username, setUsername] = useState("");

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Amazon from "./Components/Amazon";
+import MainBody from "./Components/MainBody";
 import Navbar from "./Components/Navbar";
 import Cart from "./Components/Cart";
 import Login from "./Components/Forms/Login";
@@ -10,24 +10,25 @@ import SignUp from "./Components/Forms/SignUp";
 import Dashboard from "./Components/Pages/Dashboard";
 import About from "./Components/Pages/About";
 import Home from "./Components/Pages/Home";
+import ContactUs from "./Components/Forms/ContactUs";
 
 const App = () => {
-  const [show, setShow] = useState(true);
-  const [cart, setCart] = useState([]);
+  // const [show, setShow] = useState(true);
+  // const [cart, setCart] = useState([]);
 
-  const handleClick = (item) => {
-    if (cart.indexOf(item) !== -1) return;
-    setCart([...cart, item]);
-  };
+  // const handleClick = (item) => {
+  //   if (cart.indexOf(item) !== -1) return;
+  //   setCart([...cart, item]);
+  // };
 
-  const handleChange = (item, d) => {
-    const ind = cart.indexOf(item);
-    const arr = cart;
-    arr[ind].amount += d;
+  // const handleChange = (item, d) => {
+  //   const ind = cart.indexOf(item);
+  //   const arr = cart;
+  //   arr[ind].amount += d;
 
-    if (arr[ind].amount === 0) arr[ind].amount = 1;
-    setCart([...arr]);
-  };
+  //   if (arr[ind].amount === 0) arr[ind].amount = 1;
+  //   setCart([...arr]);
+  // };
 {/* <Navbar setShow={setShow} size={cart.length} />
       {show ? (
         <Amazon handleClick={handleClick} />
@@ -46,6 +47,7 @@ const App = () => {
       <Route path="/dashboard" element={<Dashboard/>} />
       <Route path="/about" element={<About/>} />
       <Route path="/home" element={<Home/>} />
+      <Route path="/contactus" element={<ContactUs/>} />
     </Routes>
   </Router>
   //   <Router>

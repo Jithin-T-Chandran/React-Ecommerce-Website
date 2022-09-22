@@ -30,6 +30,11 @@ function NavBar() {
                   About
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to={'/contactus'}>
+                  Contact Us
+                </NavLink>
+              </li>
             </ul>
           </div>
 
