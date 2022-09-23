@@ -1,13 +1,10 @@
 import React, { useState, Fragment } from "react";
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
   Link,
   useNavigate,
 } from "react-router-dom";
-import axios from "axios";
 import Swal from "sweetalert2";
+import Footer from "../Pages/Footer";
 import NavBar from "../Pages/NavBar";
 
 function ContactUs() {
@@ -17,13 +14,29 @@ function ContactUs() {
 
   const navigate = useNavigate();
   const submitHandler = async (event) => {
-    event.preventDefault();
-    let body = {
-      username,
-      email,
-      phone,
-    };
-    console.log(body);
+    try {
+          event.preventDefault();
+          let contactDetails = {
+            username,
+            email,
+            phone,
+          };
+          const response = await fetch('https://ecommerce-70037-default-rtdb.firebaseio.com/ecommerce/contact.json', {
+            method: 'POST',
+            body: JSON.stringify(contactDetails),
+        })
+        if (response) {
+          Swal.fire("Submitted!", "We will contact you", "success");
+          navigate("/login");
+        }
+    }catch (e) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+      });
+    }
+
   };
   return (
     <Fragment>
@@ -77,6 +90,7 @@ function ContactUs() {
           </form>
         </div>
       </div>
+      <Footer/>
     </Fragment>
   );
 }

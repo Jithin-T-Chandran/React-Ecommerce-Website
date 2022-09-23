@@ -4,11 +4,12 @@ import CartContext from "../../store/cart-context";
 import Modal from "../UI/Modal";
 import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
+import Swal from "sweetalert2";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
+  const totalAmount = `₹${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
     const cartItemRemoveHandler = (id) => {
@@ -17,6 +18,13 @@ const Cart = (props) => {
 
     const cartItemAddHandler = (item) => {
       cartCtx.addItem({...item, amount: 1});
+    };
+   
+    const  onClickhandler = () => {
+      props.onClose();
+      if(true){
+        Swal.fire("Thank you!", " Your order Has been Placed", "success");
+      }
     };
 
   const cartItems = (
@@ -34,16 +42,15 @@ const Cart = (props) => {
     // </ul>
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => (
-        // <CartItem
-        //   key={item.id}
-        //   title={item.title}
-        //   author={item.author}
-        //   price={item.price}
-        //   amount={item.amount}
-        //   onRemove={cartItemRemoveHandler.bind(null, item.id)}
-        //   onAdd={cartItemAddHandler.bind(null, item)}
-        // />
-        console.log(item)
+        <CartItem
+          key={item.id}
+          title={item.title}
+          author={item.author}
+          price={item.price}
+          amount={item.amount}
+          onRemove={cartItemRemoveHandler.bind(null, item.id)}
+          onAdd={cartItemAddHandler.bind(null, item)}
+        />
       ))}
     </ul>
   );
@@ -59,7 +66,7 @@ const Cart = (props) => {
         <button className={classes["button--alt"]} onClick={props.onClose}>
           Close
         </button>
-        {hasItems && <button className={classes.button}>Order</button>}
+        {hasItems && <button className={classes.button} onClick={onClickhandler}>Order</button>}
       </div>
     </Modal>
     // <Modal onClose={props.onClose}>

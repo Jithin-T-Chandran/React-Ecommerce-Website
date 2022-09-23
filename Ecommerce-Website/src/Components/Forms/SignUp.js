@@ -1,8 +1,5 @@
 import React, { useState,Fragment } from "react";
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
   Link,
   useNavigate,
 } from "react-router-dom";
@@ -10,6 +7,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import NavBar from "../Pages/NavBar";
 import "./SignUp.css";
+import Footer from "../Pages/Footer";
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -112,6 +110,7 @@ function SignUp() {
         </form>
       </div>
     </div>
+    <Footer/>
     </Fragment>
   );
 }

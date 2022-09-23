@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from "react-router-dom";
 function NavBar() {
   return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <NavLink className="navbar-brand" to={'/login'}>
           E-commerce

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import CartContext from "../store/cart-context";
 
 const Card = (props) => {
-  const { title, author, price, img ,amount} = props;
+  const { title, author, price, img} = props;
   const cartCtx = useContext(CartContext);
 
   const ClickHandler = () => {
@@ -15,6 +15,8 @@ const Card = (props) => {
       img:props.img,
       amount:props.amount
     });
+    
+    // console.log(props.id,props.title,props.author,props.price,props.img,props.amount);
   };
   return (
     <div className="cards">
