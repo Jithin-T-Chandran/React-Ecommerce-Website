@@ -24,7 +24,11 @@ const Cart = (props) => {
       props.onClose();
       if(true){
         Swal.fire("Thank you!", " Your order Has been Placed", "success");
+        setTimeout(()=>{
+          window.location.reload();
+        },1000);
       }
+
     };
 
   const cartItems = (

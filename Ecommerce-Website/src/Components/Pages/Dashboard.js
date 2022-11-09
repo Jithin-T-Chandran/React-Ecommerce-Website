@@ -5,18 +5,17 @@ import Cart from "../Cart/Cart";
 import Header from "../Layout/Header";
 import MainBody from "../MainBody";
 import "./Dashboard.css";
-import DotLoader from "react-spinners/DotLoader";
 import Footer from "./Footer";
 
 function Dashboard() {
   const [cardIsShown, setCardIsShown] = useState(false);
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+  // const [loading, setLoading] = useState(false);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000);
+  // }, []);
 
   const showCartHandler = () => {
     setCardIsShown(true);
@@ -27,7 +26,7 @@ function Dashboard() {
 
   return (
     <Fragment>
-      {loading ? (
+      {/* {loading ? (
         <div className="spinner">
           <DotLoader color={"#33bbff"} loading={loading} size={120} />
         </div>
@@ -38,7 +37,13 @@ function Dashboard() {
           <MainBody />
           <Footer/>
         </CartProvider>
-      )}
+      )} */}
+    <CartProvider>
+          {cardIsShown && <Cart onClose={hideCartHandler} />}
+          <Header onShowCart={showCartHandler} />
+          <MainBody />
+          <Footer/>
+        </CartProvider>
     </Fragment>
   );
 }
