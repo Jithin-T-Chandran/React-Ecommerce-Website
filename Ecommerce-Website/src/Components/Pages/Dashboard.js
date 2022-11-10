@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import CartProvider from "../../store/CartProvider";
 import Cart from "../Cart/Cart";
 
